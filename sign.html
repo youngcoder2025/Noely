@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Sign Up</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="form-container">
+
+<h2>Create Account</h2>
+
+<input id="name" placeholder="Full Name">
+
+<input id="email" placeholder="Email">
+
+<input id="password" type="password" placeholder="Password">
+
+<select id="role">
+
+<option value="seeker">Register as House Seeker</option>
+<option value="agent">Register as Agent</option>
+
+</select>
+
+<button onclick="signup()">Sign Up</button>
+
+</div>
+
+<script>
+
+async function signup(){
+
+const name = document.getElementById("name").value
+const email = document.getElementById("email").value
+const password = document.getElementById("password").value
+const role = document.getElementById("role").value
+
+await fetch("https://noely-rent.onrender.com/api/auth/signup",{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({
+name,
+email,
+password,
+role
+})
+
+})
+
+alert("Account created successfully")
+
+}
+
+</script>
+
+</body>
+</html>

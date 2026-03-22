@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Noely Rent - About Us</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+  <div class="logo"><b>⚛️ Noely-rent</b></div>
+  <div class="menu" onclick="toggleMenu()">☰</div>
+  <ul id="menu" class="men">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="add-property.html">Add Property</a></li>
+    <li><a href="agent.html">Verified Agents</a></li>
+    <li id="nav-auth"><a href="log.html">Login</a></li>
+    <li class="nav-user" id="nav-user"></li>
+    <li class="nav-logout" id="nav-logout">Logout</li>
+  </ul>
+</nav>
+
+<div class="header">
+  <h1>About Noely-Rent</h1>
+  <p>Noely-Rent is a platform connecting tenants with verified landlords in Awka. Our mission is to simplify finding and renting accommodation with ease and security.</p>
+</div>
+
+<div class="property-list">
+  <h2 style="text-align:center;">Why Choose Us</h2>
+  <div class="agent-card">
+    <h3>Verified Agents</h3>
+    <p>All landlords are verified for safety and reliability.</p>
+  </div>
+  <div class="agent-card">
+    <h3>Easy Contact</h3>
+    <p>Call or WhatsApp message landlords directly through the app.</p>
+  </div>
+  <div class="agent-card">
+    <h3>Secure & Reliable</h3>
+    <p>We ensure trustworthy listings and smooth property management.</p>
+  </div>
+</div>
+
+<div class="bottom">
+  <div><div class="logo"><b>⚛️ Noely-rent</b></div><p>Find the best accommodation in Awka with ease.</p></div>
+  <div><h2>Property Types</h2><ul><li>Lodges</li><li>Hostels</li><li>Self-Contained</li><li>Apartments</li></ul></div>
+  <div><h2>Support</h2><ul><li>Help</li><li>Privacy Policy</li><li>Terms of Service</li></ul></div>
+  <div><h2>Contact Us</h2><ul><li>Expressway, opposite Unizik gate</li><li>📧 hello@noely-rent.com</li><li>📞 +2349076Noely-rent</li></ul></div>
+</div>
+
+<script>
+function toggleMenu(){document.getElementById('menu').classList.toggle('show');}
+
+const loggedUser=JSON.parse(localStorage.getItem('loggedInUser'));
+const navUser=document.getElementById('nav-user');
+const navAuth=document.getElementById('nav-auth');
+const navLogout=document.getElementById('nav-logout');
+
+if(loggedUser){
+  navUser.textContent=`Hi, ${loggedUser.name} (${loggedUser.role})`;
+  navAuth.style.display='none';
+  navLogout.style.display='inline-block';
+}else{
+  navUser.style.display='none';
+  navLogout.style.display='none';
+}
+
+navLogout.addEventListener('click',()=>{
+  localStorage.removeItem('loggedInUser');
+  window.location.href='log.html';
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Add Property</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+  <script>
+
+const role = localStorage.getItem("role")
+
+if(role !== "agent"){
+
+alert("Only agents can add properties")
+
+window.location.href="index.html"
+
+}
+
+</script>
+
+<div class="form-container">
+
+<h2>Add Property</h2>
+
+<input id="title" placeholder="Property Title">
+
+<input id="location" placeholder="Location">
+
+<input id="price" placeholder="Price">
+
+<input id="phone" placeholder="Agent Phone">
+
+<input type="file" id="image">
+
+<button onclick="addProperty()">Add Property</button>
+
+</div>
+
+<script>
+
+async function addProperty(){
+
+const formData = new FormData()
+
+formData.append("title",title.value)
+formData.append("location",location.value)
+formData.append("price",price.value)
+formData.append("phone",phone.value)
+formData.append("image",image.files[0])
+
+await fetch("https://noely-rent.onrender.com/api/properties",{
+
+method:"POST",
+
+headers:{
+Authorization:"Bearer "+localStorage.getItem("token")
+},
+
+body:formData
+
+})
+
+alert("Property added")
+
+}
+
+</script>
+
+</body>
+</html>

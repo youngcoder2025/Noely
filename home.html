@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Noely-Rent | Home</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<div class="logo">
+
+<span class="logo-icon">🏠</span>
+
+<span class="logo-text">
+Noely<span class="highlight">Rent</span>
+</span>
+
+</div>
+
+<div class="menu-icon" onclick="toggleMenu()">
+☰
+</div>
+
+<ul id="menu" class="nav-menu">
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="add-property.html">Add Property</a></li>
+
+<li><a href="agent.html">Agents</a></li>
+
+<li><a href="sign.html">Sign Up</a></li>
+
+<li><a href="log.html">Login</a></li>
+
+</ul>
+
+</nav>
+
+
+<header class="hero">
+
+<h1>Find Your Perfect Apartment</h1>
+
+<p>Discover verified apartments and houses easily.</p>
+
+</header>
+
+
+<div id="loader" class="loader"></div>
+
+
+<section class="property-container" id="property-list"></section>
+
+
+<footer class="footer">
+
+<div class="footer-container">
+
+<div class="footer-section">
+<h3>Noely-Rent</h3>
+<p>
+A modern platform helping users find verified houses,
+apartments and hostels quickly and safely.
+</p>
+</div>
+
+<div class="footer-section">
+<h3>Quick Links</h3>
+
+<ul>
+
+<li><a href="index.html">Home</a></li>
+<li><a href="add-property.html">Add Property</a></li>
+<li><a href="agent.html">Agents</a></li>
+<li><a href="sign.html">Sign Up</a></li>
+<li><a href="log.html">Login</a></li>
+
+</ul>
+
+</div>
+
+<div class="footer-section">
+
+<h3>Contact</h3>
+
+<p>Email: support@noelyrent.com</p>
+<p>Phone: +234000000000</p>
+<p>Awka, Nigeria</p>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+
+<p>© 2026 Noely-Rent. All Rights Reserved.</p>
+
+</div>
+
+</footer>
+
+<script src="script.js"></script>
+<script>
+
+function toggleMenu(){
+
+const menu = document.getElementById("menu");
+
+menu.classList.toggle("show");
+
+}
+
+</script>
+</body>
+</html>

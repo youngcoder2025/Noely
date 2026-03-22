@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Login</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="form-container">
+
+<h2>Login</h2>
+
+<input id="email" placeholder="Email">
+
+<input id="password" type="password" placeholder="Password">
+
+<button onclick="login()">Login</button>
+
+</div>
+
+<script>
+
+async function login(){
+
+const email = document.getElementById("email").value
+const password = document.getElementById("password").value
+
+const res = await fetch("https://noely-rent.onrender.com/api/auth/login",{
+
+method:"POST",
+
+headers:{"Content-Type":"application/json"},
+
+body:JSON.stringify({email,password})
+
+})
+
+const data = await res.json()
+
+localStorage.setItem("token",data.token)
+
+alert("Login successful")
+
+}
+localStorage.setItem("token", data.token)
+localStorage.setItem("role", data.role)
+</script>
+
+</body>
+</html>

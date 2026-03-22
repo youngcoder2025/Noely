@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Property Details</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">⚛️ Noely-Rent</div>
+
+<ul>
+
+<li><a href="index.html">Home</a></li>
+<li><a href="agent.html">Agents</a></li>
+
+</ul>
+
+</nav>
+
+<section class="property-detail">
+
+<div id="property-info"></div>
+
+</section>
+
+<script>
+
+const params = new URLSearchParams(window.location.search)
+const id = params.get("id")
+
+async function loadProperty(){
+
+const res = await fetch(`https://noely-rent.onrender.com/api/properties/${id}`)
+
+const p = await res.json()
+
+document.getElementById("property-info").innerHTML = `
+
+<img src="${p.image}">
+
+<h2>${p.title}</h2>
+
+<p>${p.location}</p>
+
+<p class="price">₦${p.price}</p>
+
+<a href="https://wa.me/${p.phone}" class="btn">WhatsApp</a>
+
+<a href="tel:${p.phone}" class="btn">Call Agent</a>
+
+`
+
+}
+
+loadProperty()
+
+</script>
+
+</body>
+</html>
